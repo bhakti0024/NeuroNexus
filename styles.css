@@ -1,0 +1,1250 @@
+/* Enhanced Form Styling with Colors and Visual Elements */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a192f 0%, #112240 50%, #1d4ed8 100%);
+    margin: 0;
+    padding: 30px 10px;
+    min-height: 100vh;
+    color: #333;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        url('https://www.transparenttextures.com/patterns/clean-gray-paper.png'),
+        radial-gradient(circle at 20% 20%, rgba(10, 25, 47, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(29, 78, 216, 0.3) 0%, transparent 50%);
+    background-size: auto, 100% 100%, 100% 100%;
+    animation: backgroundShift 20s linear infinite;
+    z-index: -1;
+  }
+  
+  @keyframes backgroundShift {
+    0% {
+        background-position: 0% 0%, 100% 100%, 0 0, 0 0;
+    }
+    100% {
+        background-position: 100% 100%, 0% 0%, 20px 20px, 20px 20px;
+    }
+  }
+  
+  .page-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  .form-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 
+                0 0 40px rgba(0, 0, 0, 0.1) inset;
+    padding: 40px;
+    position: relative;
+    background-image: 
+      url('https://www.transparenttextures.com/patterns/cubes.png'),
+      linear-gradient(45deg, rgba(10, 25, 47, 0.1), rgba(29, 78, 216, 0.1));
+    background-blend-mode: overlay, normal;
+    background-size: auto, cover;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  .form-container::before {
+    content: 'Welcome to Contact Page';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transform: rotate(-15deg);
+    z-index: 0;
+    pointer-events: none;
+    background: 
+      url('https://www.transparenttextures.com/patterns/light-paper-fibers.png'),
+      linear-gradient(45deg, rgba(26, 42, 108, 0.1), rgba(178, 31, 31, 0.1));
+    background-blend-mode: overlay, normal;
+  }
+  
+  .form-container::before,
+  .form-container::after {
+    content: '🙏';
+    position: absolute;
+    font-size: 100px;
+    opacity: 0.1;
+    z-index: 0;
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .form-container::before {
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg);
+  }
+  
+  .form-container::after {
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%) rotate(15deg);
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(-50%) rotate(-15deg) translateY(0);
+    }
+    50% {
+      transform: translateY(-50%) rotate(-15deg) translateY(-20px);
+    }
+    100% {
+      transform: translateY(-50%) rotate(-15deg) translateY(0);
+    }
+  }
+  
+  @keyframes float-right {
+    0% {
+      transform: translateY(-50%) rotate(15deg) translateY(0);
+    }
+    50% {
+      transform: translateY(-50%) rotate(15deg) translateY(-20px);
+    }
+    100% {
+      transform: translateY(-50%) rotate(15deg) translateY(0);
+    }
+  }
+  
+  .form-container::after {
+    animation: float-right 4s ease-in-out infinite;
+  }
+  
+  /* Ensure form content stays above the background */
+  .form-header,
+  .form-section,
+  .form-actions,
+  .form-footer {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Add responsive adjustments */
+  @media (max-width: 768px) {
+    .form-container::before,
+    .form-container::after {
+      display: none;
+    }
+    
+    .floating-element {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-container::before {
+      font-size: 24px;
+    }
+  }
+  
+  .form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientBorder 15s ease infinite;
+  }
+  
+  @keyframes gradientBorder {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .form-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .logo-container {
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .logo-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .form-header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .form-header p {
+    color: #666;
+    font-size: 16px;
+    font-weight: 300;
+  }
+  
+  .form-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+  }
+  
+  .form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      url('https://www.transparenttextures.com/patterns/light-paper-fibers.png'),
+      linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background-blend-mode: overlay;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  
+  .form-section:hover::before {
+    transform: translateX(100%);
+  }
+  
+  .form-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .personal-info {
+    border-left: 5px solid #4facfe;
+  }
+  
+  .company-info {
+    border-left: 5px solid #00f2fe;
+  }
+  
+  .additional-info {
+    border-left: 5px solid #a18cd1;
+  }
+  
+  .form-section h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #444;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .form-section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .form-group label {
+    font-size: 18px;
+    margin-bottom: 12px;
+    display: block;
+    color: #0a192f;
+    font-weight: 500;
+  }
+  
+  .required {
+    color: #ff4444;
+    font-size: 18px;
+    margin-left: 4px;
+  }
+  
+  .input-icon {
+    position: relative;
+    width: 100%;
+  }
+  
+  .icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    z-index: 1;
+    color: #666;
+    transition: all 0.3s ease;
+  }
+  
+  textarea + .icon {
+    top: 20px;
+    transform: none;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 16px 16px 16px 50px;
+    font-size: 18px;
+    border: 2px solid rgba(225, 225, 225, 0.8);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    height: auto;
+    min-height: 60px;
+  }
+  
+  textarea.form-control {
+    min-height: 120px;
+    padding-top: 16px;
+    resize: vertical;
+  }
+  
+  .form-control:hover {
+    border-color: #4facfe;
+    background-color: #e8f0fe;
+    box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+  }
+  
+  .form-control:focus {
+    border-color: #1a2a6c;
+    box-shadow: 0 0 0 3px rgba(26, 42, 108, 0.2);
+  }
+  
+  .form-group:hover .icon {
+    color: #4facfe;
+  }
+  
+  .form-group:hover label {
+    color: #4facfe;
+  }
+  
+  /* Specific styles for different input types */
+  input[type="text"]:hover,
+  input[type="email"]:hover,
+  input[type="tel"]:hover,
+  textarea:hover,
+  select:hover {
+    border-color: #4facfe;
+    background-color: #e8f0fe;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  textarea:focus,
+  select:focus {
+    border-color: #4facfe;
+    background-color: #e8f0fe;
+  }
+  
+  /* Radio button hover effects */
+  .radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 5px 0;
+  }
+  
+  .radio-option {
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 15px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .radio-button {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .radio-button::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #4facfe;
+    border-radius: 50%;
+    position: absolute;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .gender-text {
+    font-size: 18px;
+    color: #444;
+    transition: color 0.3s ease;
+  }
+  
+  .radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .radio-option:hover {
+    background-color: #e8f0fe;
+    border-color: #4facfe;
+  }
+  
+  .radio-option:hover .radio-button {
+    border-color: #4facfe;
+  }
+  
+  .radio-option:hover .gender-text {
+    color: #4facfe;
+  }
+  
+  .radio-option input[type="radio"]:checked + .radio-label .radio-button {
+    border-color: #4facfe;
+  }
+  
+  .radio-option input[type="radio"]:checked + .radio-label .radio-button::after {
+    transform: scale(1);
+  }
+  
+  .radio-option input[type="radio"]:checked + .radio-label .gender-text {
+    color: #4facfe;
+    font-weight: 500;
+  }
+  
+  .radio-option:has(input[type="radio"]:checked) {
+    background-color: #e8f0fe;
+    border-color: #4facfe;
+  }
+  
+  /* Select dropdown hover effects */
+  select.form-control,
+  .country-code-select {
+    padding-right: 50px;
+    font-size: 18px;
+    height: 60px;
+    cursor: pointer;
+  }
+  
+  select.form-control:hover,
+  .country-code-select:hover {
+    background-color: #e8f0fe;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z' fill='%234facfe'/%3E%3C/svg%3E");
+  }
+  
+  .gender-group label {
+    margin-bottom: 15px;
+    display: block;
+  }
+  
+  .form-actions {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .btn-submit {
+    padding: 18px 35px;
+    font-size: 18px;
+    background: linear-gradient(45deg, #0a192f, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-submit:hover {
+    background: linear-gradient(45deg, #1d4ed8, #0a192f);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-submit:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #3d9ae8, #00d4e6);
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    position: relative;
+  }
+  
+  .social-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(245, 245, 245, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .social-icon:nth-child(1) { --delay: 1; }
+  .social-icon:nth-child(2) { --delay: 2; }
+  .social-icon:nth-child(3) { --delay: 3; }
+  .social-icon:nth-child(4) { --delay: 4; }
+  .social-icon:nth-child(5) { --delay: 5; }
+  
+  .social-icon:hover {
+    transform: translateY(-5px) rotate(10deg);
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .required-note {
+    color: #d93025;
+    font-size: 12px;
+    margin-top: 12px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .form-container {
+      padding: 16px;
+      margin: 0 8px;
+    }
+    
+    .form-header h1 {
+      font-size: 24px;
+    }
+    
+    .radio-group {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+  
+  /* Success Page Styles */
+  .success-container {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .success-container.active {
+    display: block;
+  }
+  
+  .success-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.5s ease-out;
+  }
+  
+  .success-icon::before {
+    content: '✓';
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .success-container h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .success-container p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .success-button {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .success-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+  }
+  
+  .phone-input-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .country-selector {
+    position: relative;
+    min-width: 120px;
+  }
+  
+  .country-code-select {
+    width: 100%;
+    padding: 12px 35px 12px 15px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .country-code-select:hover {
+    border-color: #4facfe;
+    background-color: #fff;
+  }
+  
+  .country-code-select:focus {
+    outline: none;
+    border-color: #4facfe;
+    box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.2);
+    background-color: #fff;
+  }
+  
+  .country-selector::after {
+    content: '▼';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    pointer-events: none;
+    font-size: 12px;
+  }
+  
+  .phone-input-container .input-icon {
+    flex: 1;
+  }
+  
+  .phone-input-container .form-control {
+    padding-left: 45px;
+  }
+  
+  .name-fields-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  
+  @media (max-width: 600px) {
+    .name-fields-container {
+        grid-template-columns: 1fr;
+    }
+  }
+
+  /* Form Progress */
+  .form-progress {
+    margin-bottom: 30px;
+    padding: 0 20px;
+  }
+
+  .progress-bar {
+    background: rgba(225, 225, 225, 0.8);
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+    position: relative;
+    backdrop-filter: blur(5px);
+  }
+
+  .progress-fill {
+    background: linear-gradient(45deg, #0a192f, #1d4ed8);
+    height: 100%;
+    transition: width 0.3s ease;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .progress-text {
+    text-align: right;
+    color: #666;
+    font-size: 14px;
+  }
+
+  /* Initial state for progress bar */
+  .progress-fill[style*="width: 0%"] {
+    background: #e1e1e1 !important;
+  }
+
+  /* Character Counter */
+  .char-counter {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #666;
+    transition: color 0.3s ease;
+  }
+
+  /* Password */
+  .password-strength {
+    display: none;
+  }
+
+  .strength-bar {
+    display: none;
+  }
+
+  .strength-fill {
+    display: none;
+  }
+
+  .strength-text {
+    display: none;
+  }
+
+  .toggle-password {
+    display: none;
+  }
+
+  /* Toggle Password Button */
+  .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    color: #666;
+    transition: color 0.3s ease;
+  }
+
+  .toggle-password:hover {
+    color: #4facfe;
+  }
+
+  /* Save Button */
+  .btn-save {
+    padding: 18px 35px;
+    font-size: 18px;
+    background: #f5f5f5;
+    color: #666;
+    border: none;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+  }
+
+  .btn-save:hover {
+    background: #e8f0fe;
+    color: #4facfe;
+    transform: translateY(-2px);
+  }
+
+  .btn-save.saved {
+    background: #00C851;
+    color: white;
+  }
+
+  /* Validation Messages */
+  .validation-message {
+    font-size: 12px;
+    color: #ff4444;
+    margin-top: 5px;
+    min-height: 18px;
+  }
+
+  .form-control.error {
+    border-color: #ff4444;
+    background-color: #fff5f5;
+  }
+
+  .form-control.error + .icon {
+    color: #ff4444;
+  }
+
+  /* Input Field Animations */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  .form-control.error {
+    animation: shake 0.3s ease-in-out;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-save {
+        width: 100%;
+        justify-content: center;
+        margin-right: 0;
+    }
+  }
+
+  /* Update form height to account for removed field */
+  .contact-form {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  /* Add animation for input focus */
+  @keyframes inputFocus {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(79, 172, 254, 0.2);
+    }
+    50% {
+      transform: scale(1.02);
+      box-shadow: 0 0 0 5px rgba(79, 172, 254, 0.1);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(79, 172, 254, 0.2);
+    }
+  }
+
+  .form-control:focus {
+    animation: inputFocus 0.5s ease-out;
+  }
+
+  /* Add animation for submit button click */
+  @keyframes buttonClick {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .btn-submit:active {
+    animation: buttonClick 0.2s ease-out;
+  }
+
+  /* Sticker Styles */
+  .sticker {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 16px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .section-sticker {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 24px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  /* Remove hover effects */
+  .sticker:hover, .section-sticker:hover {
+    transform: none;
+  }
+
+  /* Updated Background */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a192f 0%, #112240 50%, #1d4ed8 100%);
+    margin: 0;
+    padding: 30px 10px;
+    min-height: 100vh;
+    color: #333;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        url('https://www.transparenttextures.com/patterns/clean-gray-paper.png'),
+        radial-gradient(circle at 20% 20%, rgba(10, 25, 47, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(29, 78, 216, 0.3) 0%, transparent 50%);
+    background-size: auto, 100% 100%, 100% 100%;
+    animation: backgroundShift 20s linear infinite;
+    z-index: -1;
+  }
+
+  .form-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 
+                0 0 40px rgba(0, 0, 0, 0.1) inset;
+    padding: 40px;
+    position: relative;
+    background-image: 
+      url('https://www.transparenttextures.com/patterns/cubes.png'),
+      linear-gradient(45deg, rgba(10, 25, 47, 0.1), rgba(29, 78, 216, 0.1));
+    background-blend-mode: overlay, normal;
+    background-size: auto, cover;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Update progress bar colors */
+  .progress-fill {
+    background: linear-gradient(45deg, #0a192f, #1d4ed8);
+    height: 100%;
+    transition: width 0.3s ease;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  /* Update button colors */
+  .btn-submit {
+    padding: 18px 35px;
+    font-size: 18px;
+    background: linear-gradient(45deg, #0a192f, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-submit:hover {
+    background: linear-gradient(45deg, #1d4ed8, #0a192f);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Update form control focus colors */
+  .form-control:focus {
+    border-color: #1a2a6c;
+    box-shadow: 0 0 0 3px rgba(26, 42, 108, 0.2);
+  }
+
+  /* Update decorative elements */
+  .form-container::after {
+    background: 
+      url('https://www.transparenttextures.com/patterns/light-paper-fibers.png'),
+      linear-gradient(45deg, rgba(26, 42, 108, 0.1), rgba(178, 31, 31, 0.1));
+  }
+
+  .form-container::before {
+    background: 
+      url('https://www.transparenttextures.com/patterns/light-paper-fibers.png'),
+      linear-gradient(45deg, rgba(178, 31, 31, 0.1), rgba(26, 42, 108, 0.1));
+  }
+
+  /* Update floating elements */
+  .floating-element {
+    background: rgba(26, 42, 108, 0.1);
+  }
+
+  /* Enhanced Social Icons */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .social-icon {
+    width: 50px;
+    height: 50px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: float 3s ease-in-out infinite;
+    animation-delay: calc(var(--delay) * 0.2s);
+  }
+
+  .social-icon:nth-child(1) { --delay: 1; }
+  .social-icon:nth-child(2) { --delay: 2; }
+  .social-icon:nth-child(3) { --delay: 3; }
+  .social-icon:nth-child(4) { --delay: 4; }
+  .social-icon:nth-child(5) { --delay: 5; }
+
+  .social-icon:hover {
+    transform: translateY(-5px) rotate(10deg);
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Enhanced Button Icons */
+  .btn-icon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-save:hover .btn-icon,
+  .btn-submit:hover .btn-icon {
+    transform: scale(1.2) rotate(10deg);
+  }
+
+  /* Department Option Stickers */
+  select option {
+    padding: 8px;
+  }
+
+  select option .sticker {
+    margin-left: 5px;
+    font-size: 14px;
+  }
+
+  /* Gender Option Stickers */
+  .gender-text .sticker {
+    margin-left: 5px;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+
+  /* Form Footer Sticker */
+  .form-footer p .sticker {
+    margin-left: 5px;
+    font-size: 18px;
+    vertical-align: middle;
+  }
+
+  /* Add decorative corner elements */
+  .form-container::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: 
+      url('https://www.transparenttextures.com/patterns/light-paper-fibers.png'),
+      linear-gradient(45deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+    background-blend-mode: overlay;
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .form-container::before {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: 
+      url('https://www.transparenttextures.com/patterns/light-paper-fibers.png'),
+      linear-gradient(45deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1));
+    background-blend-mode: overlay;
+    border-radius: 50%;
+    bottom: -75px;
+    left: -75px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Add floating decorative elements */
+  .floating-element {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .floating-element:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .floating-element:nth-child(2) {
+    top: 40%;
+    right: 15%;
+    animation-delay: 1s;
+  }
+
+  .floating-element:nth-child(3) {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 2s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(180deg);
+    }
+  }

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Information Form</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page-container">
+    <div class="form-progress">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 0%"></div>
+      </div>
+      <div class="progress-text">Form Progress: <span id="progressPercent">0%</span></div>
+    </div>
+
+    <div class="form-container" id="formContainer">
+      <div class="form-header">
+        <div class="logo-container">
+          <div class="logo">
+            <img src="/api/placeholder/50/50" alt="Logo" class="logo-image">
+          </div>
+        </div>
+        <h1>Contact Information</h1>
+        <p>Please fill out the following information to get in touch with us</p>
+      </div>
+      
+      <form id="contactForm">
+        <div class="form-section personal-info">
+          <h2>Personal Details <span class="section-sticker">👤</span></h2>
+          
+          <div class="form-group">
+            <label for="firstName">First Name <span class="required">*</span></label>
+            <div class="input-icon">
+              <span class="icon">👤</span>
+              <input type="text" id="firstName" class="form-control" placeholder="John" required 
+                     data-maxlength="30" oninput="updateCharCount(this)">
+              <div class="char-counter">0/30</div>
+            </div>
+            <div class="validation-message"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="lastName">Last Name <span class="required">*</span></label>
+            <div class="input-icon">
+              <span class="icon">👤</span>
+              <input type="text" id="lastName" class="form-control" placeholder="Doe" required 
+                     data-maxlength="30" oninput="updateCharCount(this)">
+              <div class="char-counter">0/30</div>
+            </div>
+            <div class="validation-message"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="contactNumber">Contact Number <span class="sticker">📱</span></label>
+            <div class="phone-input-container">
+              <div class="country-selector">
+                <select id="countryCode" class="country-code-select">
+                  <option value="+91" data-flag="🇮🇳">India (+91)</option>
+                  <option value="+1" data-flag="🇺🇸">USA (+1)</option>
+                  <option value="+44" data-flag="🇬🇧">UK (+44)</option>
+                  <option value="+81" data-flag="🇯🇵">Japan (+81)</option>
+                  <option value="+86" data-flag="🇨🇳">China (+86)</option>
+                  <option value="+33" data-flag="🇫🇷">France (+33)</option>
+                  <option value="+49" data-flag="🇩🇪">Germany (+49)</option>
+                  <option value="+7" data-flag="🇷🇺">Russia (+7)</option>
+                  <option value="+55" data-flag="🇧🇷">Brazil (+55)</option>
+                  <option value="+61" data-flag="🇦🇺">Australia (+61)</option>
+                </select>
+              </div>
+              <div class="input-icon">
+                <span class="icon">📞</span>
+                <input type="tel" id="contactNumber" class="form-control" placeholder="1234567890" required>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="emailAddress">Email Address <span class="sticker">✉️</span></label>
+            <div class="input-icon">
+              <span class="icon">✉️</span>
+              <input type="email" id="emailAddress" class="form-control" placeholder="your.email@example.com" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="address">Address <span class="sticker">🏠</span></label>
+            <div class="input-icon">
+              <span class="icon">🏠</span>
+              <textarea id="address" rows="3" class="form-control" placeholder="123 Main St, City, Country" required></textarea>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-section company-info">
+          <h2>Company Information <span class="section-sticker">🏢</span></h2>
+          
+          <div class="form-group">
+            <label for="companyName">Company Name <span class="sticker">🏢</span></label>
+            <div class="input-icon">
+              <span class="icon">🏢</span>
+              <input type="text" id="companyName" class="form-control" placeholder="Acme Corporation" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="department">Department <span class="sticker">🔍</span></label>
+            <div class="input-icon">
+              <span class="icon">🔍</span>
+              <select id="department" class="form-control" required>
+                <option value="" disabled selected>Select your department</option>
+                <option value="hr">Human Resources <span class="sticker">👥</span></option>
+                <option value="sales">Sales & Marketing <span class="sticker">💰</span></option>
+                <option value="development">Development & Engineering <span class="sticker">💻</span></option>
+                <option value="marketing">Marketing & Communications <span class="sticker">📢</span></option>
+                <option value="others">Others <span class="sticker">✨</span></option>
+              </select>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-section additional-info">
+          <h2>Additional Information <span class="section-sticker">ℹ️</span></h2>
+          
+          <div class="form-group gender-group">
+            <label>Gender <span class="required">*</span> <span class="sticker">👥</span></label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male" class="radio-label">
+                  <span class="radio-button"></span>
+                  <span class="gender-text">Male <span class="sticker">👨</span></span>
+                </label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="female" name="gender" value="female" required>
+                <label for="female" class="radio-label">
+                  <span class="radio-button"></span>
+                  <span class="gender-text">Female <span class="sticker">👩</span></span>
+                </label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="preferNotToSay" name="gender" value="prefer-not-to-say" required>
+                <label for="preferNotToSay" class="radio-label">
+                  <span class="radio-button"></span>
+                  <span class="gender-text">Prefer not to say <span class="sticker">🤐</span></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" class="btn-save" onclick="saveForm()">
+            <span class="btn-icon">💾</span>
+            <span class="btn-text">Save Progress</span>
+          </button>
+          <button type="submit" class="btn-submit">
+            <span class="btn-text">Submit Information</span>
+            <span class="btn-icon">📤</span>
+          </button>
+        </div>
+        
+        <div class="required-note">* All fields are required</div>
+      </form>
+      
+      <div class="form-footer">
+        <div class="social-icons">
+          <span class="social-icon">📱</span>
+          <span class="social-icon">💻</span>
+          <span class="social-icon">📧</span>
+          <span class="social-icon">🌐</span>
+          <span class="social-icon">📱</span>
+        </div>
+        <p>Thank you for your interest in our services! <span class="sticker">✨</span></p>
+      </div>
+    </div>
+
+    <div class="success-container" id="successContainer">
+      <div class="success-icon"></div>
+      <h2>Thank You!</h2>
+      <p>Your information has been successfully submitted. We'll get back to you soon.</p>
+      <button class="success-button" onclick="resetForm()">Submit Another Response</button>
+    </div>
+  </div>
+
+  <script>
+    // Form progress tracking
+    const form = document.getElementById('contactForm');
+    const progressFill = document.querySelector('.progress-fill');
+    const progressText = document.getElementById('progressPercent');
+    const requiredFields = form.querySelectorAll('[required]');
+    
+    // Initialize progress at 0%
+    progressFill.style.width = '0%';
+    progressFill.style.background = '#e1e1e1';
+    progressText.textContent = '0%';
+    
+    function updateProgress() {
+      const filledFields = Array.from(requiredFields).filter(field => {
+        // Check if the field has a value
+        if (field.type === 'radio') {
+          // For radio buttons, check if any in the group is checked
+          return form.querySelector(`input[name="${field.name}"]:checked`);
+        }
+        return field.value.trim() !== '';
+      }).length;
+      
+      const progress = (filledFields / requiredFields.length) * 100;
+      progressFill.style.width = `${progress}%`;
+      progressText.textContent = `${Math.round(progress)}%`;
+      
+      // Add visual feedback based on progress
+      if (progress === 0) {
+        progressFill.style.background = '#e1e1e1';
+      } else if (progress < 50) {
+        progressFill.style.background = '#ff4444';
+      } else if (progress < 100) {
+        progressFill.style.background = '#ffbb33';
+      } else {
+        progressFill.style.background = '#00C851';
+      }
+    }
+
+    // Character counter
+    function updateCharCount(input) {
+      const counter = input.nextElementSibling;
+      const maxLength = input.getAttribute('data-maxlength');
+      const currentLength = input.value.length;
+      counter.textContent = `${currentLength}/${maxLength}`;
+      
+      if (currentLength > maxLength) {
+        counter.style.color = '#ff4444';
+      } else {
+        counter.style.color = '#666';
+      }
+      
+      // Update progress when character count changes
+      updateProgress();
+    }
+
+    // Auto-save functionality
+    function saveForm() {
+      const formData = new FormData(form);
+      const formObject = {};
+      formData.forEach((value, key) => {
+        formObject[key] = value;
+      });
+      localStorage.setItem('formData', JSON.stringify(formObject));
+      
+      // Show save confirmation
+      const saveButton = document.querySelector('.btn-save');
+      saveButton.classList.add('saved');
+      setTimeout(() => {
+        saveButton.classList.remove('saved');
+      }, 2000);
+    }
+
+    // Initialize progress on page load
+    window.addEventListener('load', () => {
+      // Reset progress to 0%
+      progressFill.style.width = '0%';
+      progressFill.style.background = '#e1e1e1';
+      progressText.textContent = '0%';
+      
+      // Load saved form data if any
+      const savedData = localStorage.getItem('formData');
+      if (savedData) {
+        const formObject = JSON.parse(savedData);
+        Object.keys(formObject).forEach(key => {
+          const input = form.querySelector(`[name="${key}"]`);
+          if (input) {
+            input.value = formObject[key];
+            if (input.hasAttribute('data-maxlength')) {
+              updateCharCount(input);
+            }
+          }
+        });
+        updateProgress();
+      }
+    });
+
+    // Form submission
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Validate all fields
+      let isValid = true;
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          isValid = false;
+          field.classList.add('error');
+        } else {
+          field.classList.remove('error');
+        }
+      });
+
+      if (isValid) {
+        setTimeout(() => {
+          document.getElementById('formContainer').style.display = 'none';
+          document.getElementById('successContainer').classList.add('active');
+        }, 500);
+      }
+    });
+
+    // Reset form
+    function resetForm() {
+      form.reset();
+      document.getElementById('formContainer').style.display = 'block';
+      document.getElementById('successContainer').classList.remove('active');
+      localStorage.removeItem('formData');
+      
+      // Reset progress to 0%
+      progressFill.style.width = '0%';
+      progressFill.style.background = '#e1e1e1';
+      progressText.textContent = '0%';
+      
+      // Reset character counters
+      form.querySelectorAll('[data-maxlength]').forEach(input => {
+        updateCharCount(input);
+      });
+    }
+
+    // Add input event listeners for progress tracking
+    requiredFields.forEach(field => {
+      field.addEventListener('input', updateProgress);
+      if (field.type === 'radio') {
+        field.addEventListener('change', updateProgress);
+      }
+    });
+
+    // Country code selector functionality
+    const countryCodeSelect = document.getElementById('countryCode');
+    const contactNumberInput = document.getElementById('contactNumber');
+
+    countryCodeSelect.addEventListener('change', function() {
+      const selectedOption = this.options[this.selectedIndex];
+      const countryCode = selectedOption.value;
+      const currentNumber = contactNumberInput.value.replace(/^\+\d+\s*/, '');
+      contactNumberInput.value = countryCode + ' ' + currentNumber;
+      updateProgress();
+    });
+
+    // Initialize with default country code
+    contactNumberInput.value = countryCodeSelect.value + ' ';
+    updateProgress();
+  </script>
+</body>
+</html>
